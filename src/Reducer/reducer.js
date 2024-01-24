@@ -7,18 +7,16 @@ export const reducer = (state, action) => {
         data: data,
         isLoadding: isLoadding,
         error: error,
+        countryData: data
       };
 
     case "REMOVE":
-      const filteredCountries =
-        state.data && Array.isArray(state.data)
-          ? state.data.filter(
-              (country) => country.name.common === action.payload
-            )
-          : [];
+      const filteredCountries = state.countryData && state.countryData.filter(country => country.name.common !== action.payload)
+      console.log(state.countryData)
+      console.log(filteredCountries)
       return {
         ...state,
-        data: filteredCountries,
+        countryData: filteredCountries,
       };
 
     case "SEARCH":
@@ -28,7 +26,7 @@ export const reducer = (state, action) => {
       );
       return {
         ...state,
-        data: filterCountry,
+        countryData : filterCountry,
       };
 
     default:

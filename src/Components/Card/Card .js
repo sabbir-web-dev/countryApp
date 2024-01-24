@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Card({ country }) {
   const { name, region, flags, population, area,} = country;
-  const { dispatch } = useContryHooks();
+  const {  removeCountry} = useContryHooks();
 
   return (
     <div className="card">
@@ -13,7 +13,7 @@ function Card({ country }) {
 
       <div className="card-botttom">
         <h4>
-          Name: <strong>{name.common}</strong>
+          Name: <strong>{name.common.slice(0,14)}</strong>
         </h4>
         <h5>
           Region: <strong>{region}</strong>
@@ -34,7 +34,7 @@ function Card({ country }) {
           </Link>
           <div
             className="btn"
-            onClick={() => dispatch({ type: "REMOVE", payload: name.common })}
+            onClick={() => removeCountry(name.common)}
           >
             Remove
           </div>

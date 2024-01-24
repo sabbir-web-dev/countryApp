@@ -114,5 +114,15 @@ img{
   margin:0 auto;
 }
 .country-bottom{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 15px;
+  padding-bottom: 50px;
+}
+.c-b{
   text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }

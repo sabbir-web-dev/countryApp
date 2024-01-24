@@ -18,6 +18,7 @@ const UseProvider = ({ children }) => {
     isLoadding: true,
     data: [],
     error: null,
+    countryData: []
   });
 
   const value = {
@@ -25,6 +26,11 @@ const UseProvider = ({ children }) => {
     isLoadding: state.isLoadding,
     data: state.data,
     error: state.error,
+    countryData : state.countryData,
+    removeCountry : (country) => {
+      console.log(country)
+      dispatch({type:"REMOVE",payload:country})
+    }
   };
   return (
     <CountryContext.Provider value={value}>{children}</CountryContext.Provider>

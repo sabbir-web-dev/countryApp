@@ -7,14 +7,14 @@ import { useContryHooks } from "../Hooks/CountryContre";
 
 function Home() {
 
-  const { data, isLoadding, error } = useContryHooks();
+  const { countryData, isLoadding, error } = useContryHooks();
 
   return (
     <div>
       {isLoadding && <h4 style={{ textAlign: "center" }}>Loadding...</h4>}
       {error && <h4 style={{ textAlign: "center" }}>{error}</h4>}
       <div className="card-wrap">
-        {data && data.map((country) => <Card key={uuidv4()} country={{...country,id:uuidv4()}}></Card>)}
+        {countryData && countryData.map((country) => <Card key={uuidv4()} country={{...country,id:uuidv4()}}></Card>)}
       </div>
     </div>
   );
